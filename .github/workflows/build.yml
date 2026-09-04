@@ -18,16 +18,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Download Gradle wrapper jar
+      - name: Setup Gradle
         run: |
           mkdir -p gradle/wrapper
-          curl -L "https://github.com/gradle/gradle/raw/v8.0.0/gradle/wrapper/gradle-wrapper.jar" \
-            -o gradle/wrapper/gradle-wrapper.jar
-
-      - name: Make gradlew executable
-        run: |
+          curl -L "https://services.gradle.org/distributions/gradle-8.0-bin.zip" -o gradle-8.0-bin.zip
+          unzip -q gradle-8.0-bin.zip
+          cp gradle-8.0/lib/plugins/gradle-wrapper-*.jar gradle/wrapper/gradle-wrapper.jar
           chmod +x gradlew
-          chmod +x gradle/wrapper/gradle-wrapper.jar
 
       - name: Cache Gradle
         uses: actions/cache@v3
