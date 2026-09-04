@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Cleaner</string>
+    <string name="accessibility_description">Cleaner uses Accessibility Service to automatically tap the Clear Cache button in Android Settings for each app. This is the only way to clear other apps\' cache without root access.</string>
+</resources>
